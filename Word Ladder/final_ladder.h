@@ -36,7 +36,10 @@ private:
         
         return tmp_set;
     }
-    
+    /* 
+        read in dictionary,
+        create graph
+    */
     void build_graph()
     {
         ifstream ifs("dictionary.txt");
@@ -83,12 +86,10 @@ private:
                     unvisited.push(edge);
                 }
             }
-            
+            /* if end is in visited */
             if (visited.find(end) != visited.end())
-            {
-                string s = end;
-                
-                path.push(s);
+            {   
+                path.push(end);
                 
                 while (true)
                 {
