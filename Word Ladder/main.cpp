@@ -31,7 +31,7 @@ int main()
 
 		clock_t start1 = clock();    
 
-        g.path(start, end);
+        	g.path(start, end);
 
 		cout << "1: Time to compute: " << (clock() - start1) / (double) CLOCKS_PER_SEC << endl << endl;
 	}
