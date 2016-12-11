@@ -167,17 +167,34 @@ private:
         }
     }
 
+    void print_infix(Token * t)
+    {
+        if (t != NULL)
+        {
+            print_infix(t->left);
+            
+            if (t->_operator != " ")
+                cout << t->_operator << " ";
+            else
+                cout << t->_operand << " ";
+            
+            print_infix(t->right);
+        }
+    }
+    
     void print_postfix(Token * t)
     {
         if (t != NULL)
         {
             print_postfix(t->left);
-            print_postfix(t->right);
+            
 
             if (t->_operator != " ")
                 cout << t->_operator << " ";
             else
                 cout << t->_operand << " ";
+            
+            print_postfix(t->right);
         }
     }
 
