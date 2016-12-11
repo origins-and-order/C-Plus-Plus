@@ -132,25 +132,15 @@ private:
     double evaluate_tree(Token * t)
     {
         if(t->_operator == "*")
-        {
             return evaluate_tree(t->left) * evaluate_tree(t->right);
-        }
         else if (t->_operator == "/")
-        {
             return evaluate_tree(t->left) / evaluate_tree(t->right);
-        }
         else if (t->_operator == "+")
-        {
             return evaluate_tree(t->left) + evaluate_tree(t->right);
-        }
         else if (t->_operator == "-")
-        {
             return evaluate_tree(t->left) - evaluate_tree(t->right);
-        }
         else
-        {
             return t->_operand;
-        }
     }
 
     void print_prefix(Token * t)
