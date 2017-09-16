@@ -11,19 +11,14 @@ private:
     };
 
     vector<string> string_tokens;
-
     stack<string> _operators;
-
     stack<Token*> tree;
 
     bool read_expression(string expression)
     {
         unsigned int _operators = 0;
-
         unsigned int _operands = 0;
-
         unsigned int _closed_parenthesis = 0;
-
         unsigned int _opened_parenthesis = 0;
 
         for (unsigned int i = 0; i < expression.size(); i++) /* space tokens out */
@@ -34,7 +29,6 @@ private:
                 expression.insert(i+1, " ");
                 i++;
             }
-
             else if(expression[i]==')')
             {
                 _closed_parenthesis++;
@@ -44,9 +38,7 @@ private:
         }
 
         istringstream iss(expression);
-
         vector<string> tokens{istream_iterator<string>{iss}, istream_iterator<string>{}}; /* split tokens into vector */
-
         set<string> __operators({"*","/","+","-"});
         
         for (auto &token: tokens)
@@ -58,7 +50,6 @@ private:
         }
 
         string_tokens = tokens;
-
         return _operands == _operators + 1 && _opened_parenthesis == _closed_parenthesis; /* correct syntax */
     }
 
